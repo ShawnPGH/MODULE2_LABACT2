@@ -1,0 +1,7 @@
+from django.db.models.functions import ExtractHour
+from django.db.models import Count
+
+EnergyReading.objects.annotate(hour=ExtractHour('timestamp')) \
+    .values('hour') \
+    .annotate(count=Count('id')) \
+    .order_by('-count')
