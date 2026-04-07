@@ -3,3 +3,4 @@ from django.db.models import Avg
 Sensor.objects.values('building__name') \
     .annotate(avg_power=Avg('readings__power')) \
     .order_by('-avg_power')
+
