@@ -1,0 +1,3 @@
+Anomaly.objects.values('sensor__building__building_type') \
+    .annotate(total=Count('id')) \
+    .order_by('-total')
